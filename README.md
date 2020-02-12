@@ -189,4 +189,4 @@ TypeText is used to create animations that look like someone is typing.
      }
     }
 
-Please visit [this](https://codepen.io/VladKvaskov/pen/PooZVEy) pen on CodePen to see the TypeText class in action.
+Please [visit this pen](https://codepen.io/VladKvaskov/pen/PooZVEy) on CodePen to see the TypeText class in action.
