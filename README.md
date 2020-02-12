@@ -1,4 +1,4 @@
-# TypeText
+# TypeTextJS
 TypeText is used to create animations that look like someone is typing.
    
     class TypeText{
