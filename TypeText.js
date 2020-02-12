@@ -39,26 +39,26 @@ class TypeText{
     }
       for(let char of str){
         if(styleAttr !== ''){
-          this.htmlElement.innerHTML += `<span class="char-typed" style="${styleAttr}">${char}</span>` + this.cursor;
+          this.htmlElement.insertAdjacentHTML('beforeend', `<span class="char-typed" style="${styleAttr}">${char}</span>` + this.cursor);
         }
         else{
           if(this.arr_styles.length > 0){
             increment++;
             if(increment > this.arr_styles.length - 1){
-              this.htmlElement.innerHTML += `<span class="char-typed" style="${this.arr_styles[this.arr_styles.length - 1]}">${char}</span>` + this.cursor;
+              this.htmlElement.insertAdjacentHTML('beforeend', `<span class="char-typed" style="${this.arr_styles[this.arr_styles.length - 1]}">${char}</span>` + this.cursor);
             }
             else{
-              this.htmlElement.innerHTML += `<span class="char-typed" style="${this.arr_styles[increment - 1]}">${char}</span>` + this.cursor;
+              this.htmlElement.insertAdjacentHTML('beforeend', `<span class="char-typed" style="${this.arr_styles[increment - 1]}">${char}</span>` + this.cursor);
             }
           }
           else
-            this.htmlElement.innerHTML += `<span class="char-typed">${char}</span>` + this.cursor;
+            this.htmlElement.insertAdjacentHTML('beforeend', `<span class="char-typed">${char}</span>` + this.cursor);
         }
         await this.sleep(timing);
         await this.cursorRemove();
       }
     await this.cursorBlink();
-    this.htmlElement.innerHTML += this.cursor;
+    this.htmlElement.insertAdjacentHTML('beforeend', this.cursor);
   }
 
   async eraseAll(timing = 50){
@@ -73,7 +73,7 @@ class TypeText{
     this.arr_styles.reverse();
     await this.cursorRemove();
     await this.cursorBlink();
-    this.htmlElement.innerHTML += this.cursor;
+    this.htmlElement.insertAdjacentHTML('beforeend', this.cursor);
   }
   async eraseLastChars(num_of_chars_from_end, timing = 50){
     let spans = this.htmlElement.getElementsByClassName('char-typed');
@@ -89,7 +89,7 @@ class TypeText{
       this.arr_styles.reverse();
       await this.cursorRemove();
       await this.cursorBlink();
-      this.htmlElement.innerHTML += this.cursor;
+      this.htmlElement.insertAdjacentHTML('beforeend', this.cursor);
     }
     else {
       console.error('num_of_chars_from_end cannot be bigger than the amount of characters in a string \'this.htmlElement.innerText\'');
